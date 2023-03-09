@@ -1,0 +1,139 @@
+ here's a possible API design for the app:
+
+Authentication
+
+POST /api/auth/register
+
+Description: Register a new user
+Request Body:
+
+{
+    "username": "string",
+    "password": "string"
+}
+Response Body:
+
+{
+    "id": 1,
+    "username": "string",
+    "token": "string"
+}
+
+
+POST /api/auth/login
+
+
+Description: Login as an existing user
+Request Body:
+
+{
+    "username": "string",
+    "password": "string"
+}
+
+Response Body:
+
+{
+    "id": 1,
+    "username": "string",
+    "token": "string"
+}
+
+
+Events
+
+GET /api/events
+
+Description: Get a list of all upcoming events sorted by time (nearest events first)
+Request Headers:
+makefile
+Copy code
+Authorization: Bearer <token>
+Response Body:
+css
+Copy code
+[    {        "id": 1,        "organizer": {            "id": 1,            "username": "string"        },        "sport": "string",        "dateTime": "ISO_LOCAL_DATE_TIME",        "maxPlayers": 10,        "players": [            {                "id": 1,                "player": {                    "id": 1,                    "username": "string"                },                "requestStatus": "pending"            },            {                "id": 2,                "player": {                    "id": 2,                    "username": "string"                },                "requestStatus": "accepted"            }        ]
+    }
+]
+GET /api/events/{eventId}
+
+Description: Get details about a specific event, including the list of players joining the event
+Request Headers:
+
+Authorization: Bearer <token>
+Path Parameters:
+python
+Copy code
+eventId: int
+Response Body:
+
+{
+    "id": 1,
+    "organizer": {
+        "id": 1,
+        "username": "string"
+    },
+    "sport": "string",
+    "dateTime": "ISO_LOCAL_DATE_TIME",
+    "maxPlayers": 10,
+    "players": [
+        {
+            "id": 1,
+            "player": {
+                "id": 1,
+                "username": "string"
+            },
+            "requestStatus": "pending"
+        },
+        {
+            "id": 2,
+            "player": {
+                "id": 2,
+                "username": "string"
+            },
+            "requestStatus": "accepted"
+        }
+    ]
+}
+POST /api/events
+
+Description: Create a new event
+Request Headers:
+
+Authorization: Bearer <token>
+Request Body:
+json
+Copy code
+{
+    "sport": "string",
+    "dateTime": "ISO_LOCAL_DATE_TIME",
+    "maxPlayers": 10
+}
+Response Body:
+
+{
+    "id": 1,
+    "organizer": {
+        "id": 1,
+        "username": "string"
+    },
+    "sport": "string",
+    "dateTime": "ISO_LOCAL_DATE_TIME",
+    "maxPlayers": 10,
+    "players": []
+}
+PUT /api/events/{eventId}/players/{playerId}
+
+Description: Request to join an event or cancel a pending request to join
+Request Headers:
+
+Authorization: Bearer <token>
+Path Parameters:
+
+
+eventId: int
+playerId: int
+Request Body:
+
+{
+    "requestStatus
