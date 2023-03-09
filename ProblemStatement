@@ -1,0 +1,29 @@
+Playo App - https://playo.co/
+
+Our app is a platform for sports enthusiasts to find and join sports events near them. With our app, users can browse a list of available events, view details about each event, and join the events they are interested in. The app allows users to create their own events and set a limit on the number of players, as well as view the list of players who have joined the event. It is simple for users to find and join the events they are interested in. Whether you are looking to join a pickup basketball game or a local tennis tournament.
+
+Features:
+Users can log in/register with a username and password after that can create or join events.
+The user can create a sporting event. With timings and with the limit on how many players can join.
+Event Organizers can either accept or reject the request for game joining.
+Any user can request to join the game if the limit is available.
+Users can cancel the request to game joining before the game starts time.
+Users can see who all are joining the game.
+If the game starts then all pending requests must be expired.
+
+
+Tasks:
+Based on the above description, you are expected to complete the following for assessment -
+Design a Database which incorporates the above features. You can use any database.
+Write the APIs for the following views/steps -
+Login/Register (Token based authentication)
+Home Page : List of all upcoming events sorted by time (nearest events first) 
+Event Detail Page : List of players joining the event along with a button for the user to request to join the event
+
+
+Evaluation Criteria 
+Database design
+API structure
+Code standards 
+
+Note : Keep in mind the evaluation criterias and don't get into unnecessary functionalities not mentioned in the description.
