@@ -1,0 +1,25 @@
+User Table
+
+Column Name	Data Type	Constraints
+id	int	Primary Key
+username	varchar(50)	Unique
+password	varchar(255)	
+
+
+Event Table
+
+Column Name	Data Type	Constraints
+id	int	Primary Key
+organizer_id	int	Foreign Key (User.id)
+sport	varchar(50)	
+date_time	datetime	
+max_players	int	
+
+
+EventPlayer Table
+
+Column Name	Data Type	Constraints
+id	int	Primary Key
+event_id	int	Foreign Key (Event.id)
+player_id	int	Foreign Key (User.id)
+request_status	varchar(20)
