@@ -1,0 +1,158 @@
+ here is a sample code for the LLD (Low-Level Design) of the app in Java:
+
+User Class
+public class User {
+    private int id;
+    private String username;
+    private String password;
+
+    public User(int id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+
+    // getters and setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
+Event Class
+import java.time.LocalDateTime;
+import java.util.List;
+
+public class Event {
+    private int id;
+    private int organizerId;
+    private String sport;
+    private LocalDateTime dateTime;
+    private int maxPlayers;
+    private List<EventPlayer> players;
+
+    public Event(int id, int organizerId, String sport, LocalDateTime dateTime, int maxPlayers, List<EventPlayer> players) {
+        this.id = id;
+        this.organizerId = organizerId;
+        this.sport = sport;
+        this.dateTime = dateTime;
+        this.maxPlayers = maxPlayers;
+        this.players = players;
+    }
+
+    // getters and setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getOrganizerId() {
+        return organizerId;
+    }
+
+    public void setOrganizerId(int organizerId) {
+        this.organizerId = organizerId;
+    }
+
+    public String getSport() {
+        return sport;
+    }
+
+    public void setSport(String sport) {
+        this.sport = sport;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public int getMaxPlayers() {
+        return maxPlayers;
+    }
+
+    public void setMaxPlayers(int maxPlayers) {
+        this.maxPlayers = maxPlayers;
+    }
+
+    public List<EventPlayer> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<EventPlayer> players) {
+        this.players = players;
+    }
+}
+
+EventPlayer Class
+public class EventPlayer {
+    private int id;
+    private int eventId;
+    private int playerId;
+    private String requestStatus;
+
+    public EventPlayer(int id, int eventId, int playerId, String requestStatus) {
+        this.id = id;
+        this.eventId = eventId;
+        this.playerId = playerId;
+        this.requestStatus = requestStatus;
+    }
+
+    // getters and setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(int eventId) {
+        this.eventId = eventId;
+    }
+
+    public int getPlayerId() {
+        return playerId;
+    }
+
+    public void setPlayerId(int playerId) {
+        this.playerId = playerId;
+    }
+
+    public String getRequestStatus() {
+        return requestStatus;
+    }
+
+    public void setRequestStatus(String requestStatus) {
+        this.requestStatus = requestStatus;
+    }
+}
+In this code, we have three classes: User, Event, and EventPlayer. User class represents a user of the application, Event class represents a sports event, and EventPlayer class represents a player who
