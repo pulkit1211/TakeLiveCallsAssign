@@ -1,0 +1,63 @@
+The following database design can be used:
+
+Table: User
+
+id: int (primary key)
+username: varchar(50) (unique)
+password: varchar(255)
+
+
+Table: Event
+
+id: int (primary key)
+organizer_id: int (foreign key references User.id)
+sport: varchar(50)
+date_time: datetime
+max_players: int
+
+
+Table: EventPlayer
+
+id: int (primary key)
+event_id: int (foreign key references Event.id)
+player_id: int (foreign key references User.id)
+request_status: varchar(20)
+The User table stores user information, including their unique username and password. The Event table stores information about events, including the organizer, sport, date and time, and the maximum number of players allowed. The EventPlayer table stores the relationship between events and players, including the player's request status (pending, accepted, or rejected).
+
+APIs:
+
+Login/Register (Token based authentication)
+POST /api/auth/login/
+
+Parameters: username (string), password (string)
+Returns: JWT token for authenticated user
+POST /api/auth/register/
+
+Parameters: username (string), password (string)
+Returns: JWT token for registered user
+Home Page : List of all upcoming events sorted by time (nearest events first)
+GET /api/events/
+
+Parameters: None
+Returns: List of upcoming events sorted by date and time (nearest events first)
+Event Detail Page : List of players joining the event along with a button for the user to request to join the event
+GET /api/events/{event_id}/
+
+Parameters: event_id (integer)
+Returns: Details of the event, including the list of players who have joined and their request status
+POST /api/events/{event_id}/join/
+
+Parameters: event_id (integer)
+Returns: Success message if the request to join the event is successful. The request status will be pending until the organizer accepts or rejects the request.
+DELETE /api/events/{event_id}/join/
+
+Parameters: event_id (integer)
+Returns: Success message if the request to cancel the join request is successful.
+POST /api/events/{event_id}/accept/{player_id}/
+
+Parameters: event_id (integer), player_id (integer)
+Returns: Success message if the request to accept the player is successful. The player's request status will be updated to accepted.
+POST /api/events/{event_id}/reject/{player_id}/
+
+Parameters: event_id (integer), player_id (integer)
+Returns: Success message if the request to reject the player is successful. The player's request status will be updated to rejected.
